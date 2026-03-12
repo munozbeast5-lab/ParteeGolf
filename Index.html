@@ -21,7 +21,7 @@
     <li><a href="#how">How It Works</a></li>
     <li><a href="#services">Events</a></li>
     <li><a href="#packages">Packages</a></li>
-    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#whychoose">Why Us</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#booking" class="nav-cta">Book Now</a></li>
   </ul>
@@ -43,9 +43,9 @@
       <a href="#how" class="btn-outline">How It Works</a>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-num">50+</div><div class="stat-label">Events Hosted</div></div>
       <div><div class="stat-num">100+</div><div class="stat-label">Courses Available</div></div>
-      <div><div class="stat-num">5&#9733;</div><div class="stat-label">Average Rating</div></div>
+      <div><div class="stat-num">45</div><div class="stat-label">Min Setup Time</div></div>
+      <div><div class="stat-num">7</div><div class="stat-label">Days a Week</div></div>
     </div>
   </div>
 </section>
@@ -209,8 +209,9 @@
       <div class="prog-step active" id="ps1"><div class="prog-dot">1</div><div class="prog-label">Event Type</div></div>
       <div class="prog-step" id="ps2"><div class="prog-dot">2</div><div class="prog-label">Date &amp; Location</div></div>
       <div class="prog-step" id="ps3"><div class="prog-dot">3</div><div class="prog-label">Package</div></div>
-      <div class="prog-step" id="ps4"><div class="prog-dot">4</div><div class="prog-label">Your Info</div></div>
-      <div class="prog-step" id="ps5"><div class="prog-dot">5</div><div class="prog-label">Confirm</div></div>
+      <div class="prog-step" id="ps4"><div class="prog-dot">4</div><div class="prog-label">Add-Ons</div></div>
+      <div class="prog-step" id="ps5"><div class="prog-dot">5</div><div class="prog-label">Your Info</div></div>
+      <div class="prog-step" id="ps6"><div class="prog-dot">6</div><div class="prog-label">Confirm</div></div>
     </div>
 
     <div class="booking-form-wrap" id="bookingFormWrap">
@@ -314,18 +315,74 @@
           <div class="pkg-option" onclick="selectPkg(this,'Albatross')"><div class="po-name">&#127775; Albatross</div><div class="po-duration">6+ Hours</div>$<div class="po-price">1399</div></div>
           <div class="pkg-option" onclick="selectPkg(this,'Custom')"><div class="po-name">&#9999;&#65039; Custom Package</div><div class="po-duration">Your choice</div><div class="po-price">Let's talk</div></div>
         </div>
-        <div class="form-group" style="margin-top:1rem;">
-          <label>Any add-on requests or special notes?</label>
-          <textarea id="addons" placeholder="e.g. Left-handed clubs needed, longest-drive contest, specific courses..."></textarea>
-        </div>
         <div class="form-nav">
           <button class="btn-back" onclick="goToPanel(2)">&#8592; Back</button>
           <button class="btn-next" onclick="goToPanel(4)">Continue &#8594;</button>
         </div>
       </div>
 
-      <!-- PANEL 4: Contact Info -->
+      <!-- PANEL 4: Add-Ons -->
       <div class="form-panel" id="panel4">
+        <div class="panel-title">Customize Your Experience</div>
+        <div class="panel-sub">Select any add-ons to enhance your event. All are optional.</div>
+        <div class="addon-picker" id="addonPicker">
+          <label class="addon-check">
+            <input type="checkbox" name="addon" value="Extra Hour ($200)">
+            <div class="addon-check-box">
+              <span class="addon-check-icon">&#9201;</span>
+              <div class="addon-check-info">
+                <strong>Extra Hour</strong>
+                <span>Extend the fun with an additional hour of simulator time.</span>
+              </div>
+              <span class="addon-check-price">$200</span>
+            </div>
+          </label>
+          <label class="addon-check">
+            <input type="checkbox" name="addon" value="Dual Simulators (+60%)">
+            <div class="addon-check-box">
+              <span class="addon-check-icon">&#127918;</span>
+              <div class="addon-check-info">
+                <strong>Dual Simulators</strong>
+                <span>Double the action with a second simulator setup.</span>
+              </div>
+              <span class="addon-check-price">+60%</span>
+            </div>
+          </label>
+          <label class="addon-check">
+            <input type="checkbox" name="addon" value="Contest Package (+$150)">
+            <div class="addon-check-box">
+              <span class="addon-check-icon">&#127942;</span>
+              <div class="addon-check-info">
+                <strong>Contest Package</strong>
+                <span>Closest-to-pin, longest-drive, and scoring leaderboards.</span>
+              </div>
+              <span class="addon-check-price">+$150</span>
+            </div>
+          </label>
+          <label class="addon-check">
+            <input type="checkbox" name="addon" value="HD Upgrade (+$100)">
+            <div class="addon-check-box">
+              <span class="addon-check-icon">&#128250;</span>
+              <div class="addon-check-info">
+                <strong>HD Upgrade</strong>
+                <span>High-definition projection for the sharpest experience.</span>
+              </div>
+              <span class="addon-check-price">+$100</span>
+            </div>
+          </label>
+        </div>
+        <div class="form-group" style="margin-top:1rem;">
+          <label>Special requests or notes</label>
+          <textarea id="addonNotes" placeholder="e.g. Left-handed clubs needed, specific courses..."></textarea>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" onclick="goToPanel(3)">&#8592; Back</button>
+          <button class="btn-next" onclick="goToPanel(5)">Continue &#8594;</button>
+        </div>
+      </div>
+
+      <!-- PANEL 5: Contact Info -->
+      <div class="form-panel" id="panel5">
         <div class="panel-title">Your Contact Info</div>
         <div class="panel-sub">So we can confirm your booking and send details.</div>
         <div class="form-row">
@@ -351,19 +408,19 @@
           </div>
         </div>
         <div class="form-nav">
-          <button class="btn-back" onclick="goToPanel(3)">&#8592; Back</button>
-          <button class="btn-next" onclick="goToPanel(5)">Review Booking &#8594;</button>
+          <button class="btn-back" onclick="goToPanel(4)">&#8592; Back</button>
+          <button class="btn-next" onclick="goToPanel(6)">Review Booking &#8594;</button>
         </div>
       </div>
 
-      <!-- PANEL 5: Confirm -->
-      <div class="form-panel" id="panel5">
+      <!-- PANEL 6: Confirm -->
+      <div class="form-panel" id="panel6">
         <div class="panel-title">Review &amp; Confirm</div>
         <div class="panel-sub">Everything look good? Submit your request and we'll reach out within 24 hours to confirm.</div>
         <div class="confirm-box" id="confirmBox"></div>
         <p style="font-size:.75rem;color:rgba(255,255,255,.35);margin-bottom:1.5rem;">By submitting you agree to be contacted by Par-Tee Golf LLC regarding your event booking. No charges are made at this step.</p>
         <div class="form-nav">
-          <button class="btn-back" onclick="goToPanel(4)">&#8592; Back</button>
+          <button class="btn-back" onclick="goToPanel(5)">&#8592; Back</button>
           <button class="btn-submit" onclick="submitBooking()">&#127948;&#65039; Confirm Request</button>
         </div>
       </div>
@@ -381,28 +438,74 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="reviews">
-  <div style="max-width:1100px;margin:0 auto;">
-    <div class="section-eyebrow">Reviews</div>
-    <h2 class="section-title">What Our Guests <em>Say</em></h2>
+<!-- EARLY BIRD SPECIAL -->
+<section class="earlybird" id="earlybird">
+  <div class="earlybird-wrap">
+    <div class="earlybird-badge">Limited Offer</div>
+    <h2 class="earlybird-title">Early Bird Special</h2>
+    <p class="earlybird-desc">Be one of our <strong>first 20 bookings</strong> and receive <strong>15% off</strong> any package. We're launching strong and rewarding early supporters with exclusive savings.</p>
+    <div class="earlybird-details">
+      <div class="earlybird-stat"><span class="earlybird-num">15%</span><span class="earlybird-label">Off Any Package</span></div>
+      <div class="earlybird-stat"><span class="earlybird-num">20</span><span class="earlybird-label">Spots Available</span></div>
+    </div>
+    <a href="#booking" class="btn-primary">Claim Your Spot</a>
+    <p class="earlybird-fine">Discount applied automatically at confirmation. Limited to the first 20 confirmed bookings.</p>
   </div>
-  <div class="testi-grid">
-    <div class="testi-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="testi-text">"Par-Tee Golf was the highlight of our company holiday party. The setup was flawless, the attendant was super helpful, and even our non-golfers had a blast. 10/10 would book again!"</p>
-      <div class="testi-author"><div class="testi-avatar">MR</div><div><div class="testi-name">Mark R.</div><div class="testi-role">Corporate Event, 80 Guests</div></div></div>
+</section>
+
+<!-- WHY CHOOSE PAR-TEE -->
+<section class="why-choose" id="whychoose">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-eyebrow">Trust &amp; Quality</div>
+    <h2 class="section-title">Why Couples &amp; Corporate Teams Choose <em>Par-Tee</em></h2>
+    <p class="section-desc">From setup to teardown, we handle every detail so you can focus on your guests.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-item">
+      <span class="why-check">&#10003;</span>
+      <div class="why-text">
+        <strong>Fully Insured &amp; Licensed Mobile Operator</strong>
+        <p>Par-Tee Golf LLC carries full commercial liability insurance and operates as a licensed mobile entertainment provider in the state of Texas.</p>
+      </div>
     </div>
-    <div class="testi-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="testi-text">"We hired Par-Tee Golf for my husband's 50th birthday and it was absolutely perfect. Our guests were lined up all night to play. Could not have been more fun."</p>
-      <div class="testi-author"><div class="testi-avatar">ST</div><div><div class="testi-name">Sarah T.</div><div class="testi-role">Private Birthday Party</div></div></div>
+    <div class="why-item">
+      <span class="why-check">&#10003;</span>
+      <div class="why-text">
+        <strong>Professional Launch Monitor Technology</strong>
+        <p>Our simulator uses professional-grade launch monitor technology for accurate ball tracking, swing data, and a realistic on-course experience.</p>
+      </div>
     </div>
-    <div class="testi-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="testi-text">"Our charity golf tournament added a simulator and it doubled our ticket sales. The Par-Tee team was professional, punctual, and genuinely fun to work with."</p>
-      <div class="testi-author"><div class="testi-avatar">JL</div><div><div class="testi-name">Jennifer L.</div><div class="testi-role">Charity Fundraiser</div></div></div>
+    <div class="why-item">
+      <span class="why-check">&#10003;</span>
+      <div class="why-text">
+        <strong>Setup in 45 Minutes or Less</strong>
+        <p>Our trained crew arrives early and has the full simulator experience ready to go in 45 minutes or less — no disruption to your event timeline.</p>
+      </div>
     </div>
+    <div class="why-item">
+      <span class="why-check">&#10003;</span>
+      <div class="why-text">
+        <strong>On-Site Staff Handles Everything</strong>
+        <p>A dedicated Par-Tee Golf attendant stays on-site for the entire event to run the simulator, assist guests, and manage all equipment.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <span class="why-check">&#10003;</span>
+      <div class="why-text">
+        <strong>Works Indoors &amp; Outdoors</strong>
+        <p>Our portable setup is designed for any venue — garages, event halls, backyards, patios, warehouses, or tented spaces. We bring the course to you.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <span class="why-check">&#10003;</span>
+      <div class="why-text">
+        <strong>Available 7 Days a Week</strong>
+        <p>Whether it's a weekday corporate lunch or a Saturday evening wedding reception, Par-Tee Golf is available every day of the week.</p>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:2.5rem;">
+    <a href="#booking" class="btn-primary">Book Your Event</a>
   </div>
 </section>
 
@@ -436,7 +539,7 @@
         <a href="#" class="social-btn" title="TikTok">TK</a>
       </div>
     </div>
-    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#about">About Us</a></li><li><a href="#services">Event Types</a></li><li><a href="#packages">Packages</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#about">About Us</a></li><li><a href="#services">Event Types</a></li><li><a href="#packages">Packages</a></li><li><a href="#whychoose">Why Us</a></li><li><a href="#faq">FAQ</a></li></ul></div>
     <div class="footer-col"><h4>Events</h4><ul><li><a href="#booking">Corporate Events</a></li><li><a href="#booking">Private Parties</a></li><li><a href="#booking">Charity Events</a></li><li><a href="#booking">Weddings</a></li><li><a href="#booking">Backyard Events</a></li></ul></div>
     <div class="footer-col"><h4>Contact</h4><ul><li><a href="#booking">Book an Event</a></li><li><a href="mailto:info@parteegolf.com">info@parteegolf.com</a></li><li><a href="tel:+1">Call Us</a></li></ul></div>
   </div>
