@@ -15,14 +15,14 @@ let calMonth, calYear, maxDate;
 function goToPanel(n) {
   document.getElementById('panel' + currentPanel).classList.remove('active');
   document.getElementById('panel' + n).classList.add('active');
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 6; i++) {
     const ps = document.getElementById('ps' + i);
     ps.classList.remove('active', 'done');
     if (i < n) ps.classList.add('done');
     if (i === n) ps.classList.add('active');
   }
   if (n === 2) renderCalendar();
-  if (n === 5) buildConfirm();
+  if (n === 6) buildConfirm();
   currentPanel = n;
   document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -129,6 +129,8 @@ function selectTimeSlot(el, val) {
 function buildConfirm() {
   const d = document.getElementById('eventDateHidden').value;
   const t = document.getElementById('eventTimeHidden').value;
+  const addonsChecked = Array.from(document.querySelectorAll('#addonPicker input[type="checkbox"]:checked')).map(function(cb) { return cb.value; });
+  const addonNotes = document.getElementById('addonNotes').value;
   const rows = [
     ['Event Type', state.eventType || '\u2014'],
     ['Date', d ? new Date(d + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '\u2014'],
@@ -137,6 +139,8 @@ function buildConfirm() {
     ['Guests', document.getElementById('guestCount').value || '\u2014'],
     ['Setting', document.getElementById('indoorOutdoor').value || '\u2014'],
     ['Package', state.pkg || '\u2014'],
+    ['Add-Ons', addonsChecked.length ? addonsChecked.join(', ') : 'None'],
+    ['Notes', addonNotes || '\u2014'],
     ['Name', (document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value).trim() || '\u2014'],
     ['Email', document.getElementById('email').value || '\u2014'],
     ['Phone', document.getElementById('phone').value || '\u2014'],
