@@ -1,5 +1,5 @@
 [build]
-  command = "mkdir -p public && cp Index.html public/index.html && cp styles.css public/styles.css && cp app.js public/app.js && cp logo.png public/logo.png && cp hero.mp4 public/hero.mp4 && cp hero-poster.jpg public/hero-poster.jpg && cp gallery-featured.mp4 public/gallery-featured.mp4 && cp gallery-featured-poster.jpg public/gallery-featured-poster.jpg && cp gallery-1-backswing.jpg public/gallery-1-backswing.jpg && cp gallery-4-tech.jpg public/gallery-4-tech.jpg"
+  command = "mkdir -p public && cp index.html public/index.html && cp styles.css public/styles.css && cp app.js public/app.js && cp logo.png public/logo.png && cp hero.mp4 public/hero.mp4 && cp hero-poster.jpg public/hero-poster.jpg && cp gallery-featured.mp4 public/gallery-featured.mp4 && cp gallery-featured-poster.jpg public/gallery-featured-poster.jpg && cp gallery-1-backswing.jpg public/gallery-1-backswing.jpg && cp gallery-4-tech.jpg public/gallery-4-tech.jpg"
   publish = "public"
 
 # Force HTTPS for every request
