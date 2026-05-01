@@ -280,6 +280,32 @@ section { padding: 100px 6%; }
 .booking-error p { color: rgba(255,255,255,.7); font-size: .9rem; margin-bottom: 1.25rem; }
 .booking-error a { color: var(--gold); }
 
+/* ALTERNATE BOOKING (direct emails + Square placeholder) */
+.booking-alt { margin-top: 3rem; padding-top: 2.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,.08); }
+.booking-alt-or { position: relative; margin: -3.25rem auto 1.5rem; width: max-content; }
+.booking-alt-or span { display: inline-block; padding: .25rem .9rem; background: var(--navy, #091e44); color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .25em; font-size: .7rem; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; }
+.booking-alt h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: white; margin-bottom: .5rem; }
+.booking-alt-desc { color: rgba(255,255,255,.65); font-size: .95rem; line-height: 1.7; max-width: 540px; margin: 0 auto 1.5rem; }
+.booking-alt-emails { list-style: none; padding: 0; margin: 0 auto 2.5rem; display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+.booking-alt-emails li { margin: 0; }
+.booking-alt-emails a { display: inline-block; padding: .65rem 1.1rem; border: 1px solid rgba(201,168,76,.45); border-radius: 999px; color: var(--gold); font-size: .9rem; font-weight: 600; text-decoration: none; transition: background .2s, border-color .2s, color .2s; word-break: break-all; }
+.booking-alt-emails a:hover, .booking-alt-emails a:focus-visible { background: rgba(201,168,76,.12); border-color: var(--gold); color: white; outline: none; }
+
+.square-booking { position: relative; margin: 0 auto; max-width: 640px; padding: 2rem 1.5rem; border: 1px dashed rgba(255,255,255,.18); border-radius: 14px; background: rgba(255,255,255,.03); }
+.square-badge { display: inline-block; padding: .25rem .7rem; background: rgba(201,168,76,.15); color: var(--gold); border: 1px solid rgba(201,168,76,.4); border-radius: 999px; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; margin-bottom: .9rem; }
+.square-booking h4 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: white; margin-bottom: .5rem; }
+.square-booking > p { color: rgba(255,255,255,.65); font-size: .9rem; line-height: 1.65; margin-bottom: 1rem; }
+.square-embed { min-height: 0; }
+.square-embed:not(:empty) { margin-top: 1rem; min-height: 480px; }
+.square-embed iframe { width: 100%; min-height: 480px; border: 0; border-radius: 10px; background: white; }
+
+@media (max-width: 600px) {
+  .booking-alt h3 { font-size: 1.35rem; }
+  .booking-alt-emails { flex-direction: column; align-items: center; }
+  .booking-alt-emails a { width: 100%; max-width: 320px; text-align: center; }
+  .square-booking { padding: 1.5rem 1rem; }
+}
+
 /* CALENDAR */
 .cal-wrap { margin-bottom: 1.5rem; }
 .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: .5rem; }
