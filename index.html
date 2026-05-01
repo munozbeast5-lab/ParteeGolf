@@ -296,6 +296,7 @@
       netlify-honeypot="bot-field"
       class="booking-form-wrap" >
       <input type="hidden" name="form-name" value="booking">
+      <input type="hidden" name="subject" data-remove-prefix value="New Par-Tee Golf booking request">
       <p class="hp-field" aria-hidden="true">
         <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
       </p>
@@ -425,17 +426,6 @@
             </span>
           </label>
           <label class="addon-check">
-            <input type="checkbox" name="addon" value="Dual Simulators (+60%)">
-            <span class="addon-check-box">
-              <span class="addon-check-icon" aria-hidden="true">&#127918;</span>
-              <span class="addon-check-info">
-                <strong>Dual Simulators</strong>
-                <span>Double the action with a second simulator setup.</span>
-              </span>
-              <span class="addon-check-price">+60%</span>
-            </span>
-          </label>
-          <label class="addon-check">
             <input type="checkbox" name="addon" value="Contest Package (+$150)">
             <span class="addon-check-box">
               <span class="addon-check-icon" aria-hidden="true">&#127942;</span>
@@ -544,6 +534,34 @@
       <h3>We couldn't submit your booking</h3>
       <p id="bookingErrorMsg">Please check your internet connection and try again, or email us at <a href="mailto:info@parteegolf.com">info@parteegolf.com</a>.</p>
       <button type="button" class="btn-outline" id="bookingRetry">Try Again</button>
+    </div>
+
+    <!-- ALTERNATE BOOKING / DIRECT CONTACT -->
+    <div class="booking-alt" id="bookingAlt" aria-labelledby="bookingAltTitle">
+      <div class="booking-alt-or"><span>or</span></div>
+      <h3 id="bookingAltTitle">Prefer to reach the team directly?</h3>
+      <p class="booking-alt-desc">Submitted requests are routed to all three Par-Tee Golf owners. You can also email us directly — whoever's first to your message will reply.</p>
+      <ul class="booking-alt-emails">
+        <li><a href="mailto:dom@partee.golf?subject=Par-Tee%20Golf%20Booking%20Inquiry">dom@partee.golf</a></li>
+        <li><a href="mailto:vic@partee.golf?subject=Par-Tee%20Golf%20Booking%20Inquiry">vic@partee.golf</a></li>
+        <li><a href="mailto:ben@partee.golf?subject=Par-Tee%20Golf%20Booking%20Inquiry">ben@partee.golf</a></li>
+      </ul>
+
+      <!--
+        SQUARE APPOINTMENTS PLACEHOLDER
+        Once your Square Appointments service is live, paste the Square-provided embed
+        snippet (an <iframe> or <script>) inside the .square-embed div below and remove
+        the placeholder copy. The container is pre-styled and responsive.
+        Docs: https://developer.squareup.com/docs/appointments-api/overview
+      -->
+      <div class="square-booking" id="squareBooking">
+        <div class="square-badge">Coming soon</div>
+        <h4>Real-time scheduling on Square</h4>
+        <p>We're integrating Square Appointments so you can pick a date, time, and package and lock it in instantly. Until that goes live, please use the booking form above or email a Par-Tee Golf owner directly.</p>
+        <div class="square-embed" data-square-embed>
+          <!-- Paste Square Appointments embed here when ready -->
+        </div>
+      </div>
     </div>
 
   </div>
