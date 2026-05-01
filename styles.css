@@ -17,7 +17,7 @@ html {
   overflow-x: hidden;
 }
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   color: #1a1a2e;
   background: var(--cream);
   overflow-x: hidden;
@@ -26,7 +26,27 @@ body {
   -webkit-tap-highlight-color: rgba(200,16,46,.18);
   min-height: 100vh;
   min-height: 100dvh;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
+/* Noscript banner — visible only when JS is disabled. Sits above the fixed nav. */
+.noscript-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1100;
+  background: #fff8e6;
+  color: #5b4300;
+  border-bottom: 2px solid var(--gold);
+  padding: 14px 20px;
+  font-size: .85rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.noscript-banner a { color: var(--red); font-weight: 700; }
+/* When JS is disabled, html.no-js still has the class set by the inline bootstrap script — we shift the nav down to make room for the banner */
+html.no-js nav { top: 56px; }
+html.no-js .hero { padding-top: 56px; }
 /* iOS / Safari tap snappiness — interactive elements should not lag 300ms */
 a, button, [role="button"], input[type="submit"], label.addon-check, .event-option, .pkg-option, .time-slot, .cal-day, .faq-q, .nav-toggle {
   touch-action: manipulation;
@@ -491,4 +511,46 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.6); padding: 60p
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
   .hero-media { display: none; }
   .hero-img-placeholder { background-image: linear-gradient(135deg, #1e4a28, #0d2b5e); }
+}
+
+/* Very narrow phones (older Android / small iPhones / rotated) */
+@media (max-width: 380px) {
+  section { padding: 60px 4%; }
+  nav { padding: 0 .75rem; height: 64px; }
+  .nav-logo img { height: 44px; width: 44px; }
+  .nav-links { top: 64px; }
+  .hero-content { padding: 90px 5% 50px; }
+  .hero h1 { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+  .hero-sub { font-size: .95rem; }
+  .booking-form-wrap { padding: 1.1rem; }
+  .float-book { padding: 10px 14px; font-size: .7rem; }
+  .stat-num, .earlybird-num { font-size: 1.7rem; }
+  .pkg, .why-item, .service-card { padding: 1.25rem; }
+}
+
+/* Older Safari / browsers without :has(): keep hero text readable even when the video element is present */
+@supports not (selector(:has(*))) {
+  .hero-img-placeholder::before {
+    content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: linear-gradient(to right, var(--navy-dark) 0%, rgba(9,30,68,.6) 25%, transparent 45%);
+  }
+}
+
+/* Browsers without aspect-ratio support: keep video tiles from collapsing */
+@supports not (aspect-ratio: 1 / 1) {
+  .how-video-placeholder, .how-video-wrap video, .how-video-wrap iframe { height: 0; padding-bottom: 56.25%; position: relative; }
+  .gallery-grid { grid-auto-rows: 200px; }
+}
+
+/* Defensive: never let a stray child force horizontal scroll on phones */
+img, video, iframe, .booking-form-wrap, .legal-block, .confirm-box { max-width: 100%; }
+.legal-body { overflow-wrap: anywhere; }
+
+/* Print-friendly: legal/booking pages should still be readable when printed by venue staff */
+@media print {
+  nav, .float-book, .nav-toggle, .booking, .earlybird, .hero-media { display: none !important; }
+  body { background: white; color: #000; }
+  .legal-block { break-inside: avoid; border: 1px solid #999; }
+  details > summary { list-style: none; }
+  details:not([open]) > div { display: block !important; }
 }

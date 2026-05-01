@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  document.documentElement.classList.remove('no-js');
+
   const state = { eventType: '', pkg: '' };
   let currentPanel = 1;
   let selectedDate = null;
