@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf public && mkdir -p public && cp index.html styles.css app.js boot.js logo.png hero.mp4 hero-poster.jpg gallery-featured.mp4 gallery-featured-poster.jpg gallery-1-backswing.jpg gallery-4-tech.jpg public/ && test -s public/index.html"
+  command = "rm -rf public && mkdir -p public && cp index.html styles.css app.js boot.js logo.png favicon.ico favicon-16x16.png favicon-32x32.png apple-touch-icon.png hero.mp4 hero-poster.jpg gallery-featured.mp4 gallery-featured-poster.jpg gallery-1-backswing.jpg gallery-4-tech.jpg public/ && test -s public/index.html"
   publish = "public"
 
 # Canonical domain handling for the public production URL.
