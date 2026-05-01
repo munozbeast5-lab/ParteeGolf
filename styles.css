@@ -10,8 +10,29 @@
   --light-gray: #f1f5f9;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Montserrat', sans-serif; color: #1a1a2e; background: var(--cream); overflow-x: hidden; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #1a1a2e;
+  background: var(--cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(200,16,46,.18);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+/* iOS / Safari tap snappiness — interactive elements should not lag 300ms */
+a, button, [role="button"], input[type="submit"], label.addon-check, .event-option, .pkg-option, .time-slot, .cal-day, .faq-q, .nav-toggle {
+  touch-action: manipulation;
+}
+img, video { max-width: 100%; height: auto; }
+video { background: #000; }
 
 /* A11Y: Skip link */
 .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 9999; }
@@ -20,7 +41,22 @@ body { font-family: 'Montserrat', sans-serif; color: #1a1a2e; background: var(--
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 /* NAV */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(9,30,68,.96); backdrop-filter: blur(10px); border-bottom: 2px solid var(--red); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(9,30,68,.96);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--red);
+  padding: 0 2rem;
+  padding-left: max(2rem, env(safe-area-inset-left));
+  padding-right: max(2rem, env(safe-area-inset-right));
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+/* If backdrop-filter isn't supported (older iOS Safari), fall back to a fully-opaque nav so it never looks washed out */
+@supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+  nav { background: var(--navy-dark); }
+}
 .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .nav-logo img { height: 52px; width: 52px; border-radius: 50%; border: 2px solid var(--red); }
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
@@ -35,7 +71,14 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgb
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 /* HERO */
-.hero { position: relative; min-height: 100vh; background: var(--navy-dark); display: flex; align-items: center; overflow: hidden; }
+.hero {
+  position: relative;
+  min-height: 100vh;            /* fallback */
+  min-height: 100svh;           /* iOS Safari: ignore the chrome bar */
+  background: var(--navy-dark);
+  display: flex; align-items: center;
+  overflow: hidden;
+}
 .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(200,16,46,.15) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(13,43,94,.8) 0%, transparent 50%), linear-gradient(135deg, #091e44 0%, #0d2b5e 50%, #1a3a6b 100%); }
 .hero-lines { position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,.018) 60px, rgba(255,255,255,.018) 61px); }
 .hero-img-placeholder { position: absolute; right: 0; top: 0; bottom: 0; width: 52%; background: linear-gradient(to right, var(--navy-dark) 0%, transparent 25%), linear-gradient(160deg, #1a3a20 0%, #2d5a35 30%, #1e4a28 60%, #0d2b5e 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
@@ -316,13 +359,28 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.6); padding: 60p
 .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: .75rem; }
 
 /* FLOATING BOOK BTN */
-.float-book { position: fixed; bottom: 28px; right: 28px; background: var(--red); color: white; padding: 14px 24px; border-radius: 50px; font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; box-shadow: 0 8px 30px rgba(200,16,46,.5); z-index: 900; transition: transform .2s, box-shadow .2s; display: flex; align-items: center; gap: 8px; }
+.float-book {
+  position: fixed;
+  bottom: calc(28px + env(safe-area-inset-bottom));
+  right: calc(28px + env(safe-area-inset-right));
+  background: var(--red); color: white; padding: 14px 24px; border-radius: 50px;
+  font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; box-shadow: 0 8px 30px rgba(200,16,46,.5); z-index: 900;
+  transition: transform .2s, box-shadow .2s; display: flex; align-items: center; gap: 8px;
+}
 .float-book:hover, .float-book:focus-visible { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(200,16,46,.6); }
 
 /* HERO MEDIA SUPPORT */
 .hero-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
 .hero-img-placeholder:has(.hero-media)::after { content: ''; position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, var(--navy-dark) 0%, rgba(9,30,68,.55) 18%, transparent 38%), linear-gradient(to bottom, transparent 60%, rgba(9,30,68,.4) 100%); pointer-events: none; }
 .hero-media + .hero-photo-label { display: none; }
+/* :has() fallback for older iOS Safari (<15.4) — apply the readability gradient unconditionally where a video is present */
+@supports not selector(:has(*)) {
+  .hero-img-placeholder::after {
+    content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: linear-gradient(to right, var(--navy-dark) 0%, rgba(9,30,68,.55) 18%, transparent 38%), linear-gradient(to bottom, transparent 60%, rgba(9,30,68,.4) 100%);
+  }
+}
 
 /* HOW IT WORKS VIDEO */
 .how-video-wrap { max-width: 1000px; margin: 4rem auto 0; }
@@ -374,12 +432,15 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.6); padding: 60p
   .nav-toggle { display: flex; }
   .nav-links {
     position: absolute; top: 72px; left: 0; right: 0;
-    background: rgba(9,30,68,.98); backdrop-filter: blur(10px);
+    background: rgba(9,30,68,.98);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     flex-direction: column; align-items: stretch; gap: 0;
     padding: 1rem 0; border-bottom: 2px solid var(--red);
     max-height: 0; overflow: hidden; transition: max-height .3s ease;
+    -webkit-overflow-scrolling: touch;
   }
-  .nav-links.open { max-height: calc(100vh - 72px); overflow-y: auto; }
+  .nav-links.open { max-height: calc(100vh - 72px); max-height: calc(100dvh - 72px); overflow-y: auto; }
   .nav-links li { width: 100%; }
   .nav-links a { display: block; padding: 14px 2rem; font-size: .9rem; }
   .nav-cta { margin: 8px 1.5rem; text-align: center; padding: 12px 22px !important; border-radius: 4px; }
