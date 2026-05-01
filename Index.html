@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Par-Tee Golf | Mobile Golf Simulator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#091e44">
+<meta name="description" content="Par-Tee Golf LLC — Texas-based mobile golf simulator rentals for corporate events, weddings, charity tournaments, and private parties. Fully insured, on-site staff, 100+ courses.">
+<meta name="robots" content="index,follow">
+<title>Par-Tee Golf | Texas Mobile Golf Simulator Rental</title>
 <link rel="icon" type="image/png" href="logo.png">
+<link rel="canonical" href="https://parteegolf.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,15 +16,21 @@
 </head>
 <body>
 
+<a class="skip-link" href="#home">Skip to main content</a>
+
 <!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#">
+<nav aria-label="Primary">
+  <a class="nav-logo" href="#home">
     <img src="logo.png" alt="Par-Tee Golf">
   </a>
-  <ul class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navMenu">
     <li><a href="#about">About</a></li>
     <li><a href="#how">How It Works</a></li>
     <li><a href="#services">Events</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#packages">Packages</a></li>
     <li><a href="#whychoose">Why Us</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -33,7 +43,16 @@
   <div class="hero-bg"></div>
   <div class="hero-lines"></div>
   <div class="hero-img-placeholder">
-    <div class="hero-photo-label">Your Photo Here<br><small>Replace with event image</small></div>
+    <video
+      class="hero-media"
+      src="hero.mp4"
+      poster="hero-poster.jpg"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-hidden="true"></video>
   </div>
   <div class="hero-content">
     <div class="hero-eyebrow"><span>&#9971;</span> Mobile Golf Simulator</div>
@@ -100,6 +119,13 @@
       <h3>We Pack Up</h3><p>When the event wraps, we handle full teardown and cleanup. You don't lift a finger.</p>
     </div>
   </div>
+  <div class="how-video-wrap">
+    <div class="how-video-placeholder" role="img" aria-label="Walkthrough video coming soon">
+      <div class="play-button big" aria-hidden="true">&#9654;</div>
+      <div class="how-video-label">60-Second Walkthrough Video</div>
+      <small>Show setup, gameplay, and a happy crowd</small>
+    </div>
+  </div>
   <div style="text-align:center;margin-top:3rem;">
     <a href="#booking" class="btn-primary">Book Your Date</a>
   </div>
@@ -114,28 +140,58 @@
   </div>
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-img corp">&#128188; Corporate Photo</div>
+      <div class="service-img corp"><span class="service-icon" aria-hidden="true">&#128188;</span></div>
       <div class="service-body"><h3>Corporate Events</h3><p>Team-building, client appreciation, holiday parties — impress your colleagues with a unique golf simulator experience.</p><span class="service-tag">Team Building</span></div>
     </div>
     <div class="service-card">
-      <div class="service-img party">&#127881; Party Photo</div>
+      <div class="service-img party"><span class="service-icon" aria-hidden="true">&#127881;</span></div>
       <div class="service-body"><h3>Private Parties</h3><p>Birthdays, anniversaries, graduations, or just-because celebrations. Every guest gets to play, regardless of skill level.</p><span class="service-tag">Celebrations</span></div>
     </div>
     <div class="service-card">
-      <div class="service-img charity">&#10084;&#65039; Charity Photo</div>
+      <div class="service-img charity"><span class="service-icon" aria-hidden="true">&#10084;&#65039;</span></div>
       <div class="service-body"><h3>Charity &amp; Fundraisers</h3><p>Add a simulator station to your golf tournament or fundraising gala. It's a proven crowd-drawer and ticket-seller.</p><span class="service-tag">Fundraising</span></div>
     </div>
     <div class="service-card">
-      <div class="service-img wedding">&#128141; Wedding Photo</div>
+      <div class="service-img wedding"><span class="service-icon" aria-hidden="true">&#128141;</span></div>
       <div class="service-body"><h3>Weddings &amp; Receptions</h3><p>Give your guests something to talk about. A golf simulator at your reception is unforgettable entertainment.</p><span class="service-tag">Weddings</span></div>
     </div>
     <div class="service-card">
-      <div class="service-img demo">&#127911; Demo Photo</div>
+      <div class="service-img demo"><span class="service-icon" aria-hidden="true">&#127911;</span></div>
       <div class="service-body"><h3>Trade Shows &amp; Demos</h3><p>Draw foot traffic to your booth or brand activation. The simulator is a magnet for engagement and leads.</p><span class="service-tag">Marketing</span></div>
     </div>
     <div class="service-card">
-      <div class="service-img backyard">&#127969; Backyard Photo</div>
+      <div class="service-img backyard"><span class="service-icon" aria-hidden="true">&#127969;</span></div>
       <div class="service-body"><h3>Backyard Events</h3><p>Turn your backyard into a golf course. Perfect for casual get-togethers, BBQs, and neighborhood hangouts.</p><span class="service-tag">Casual Fun</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY / IN ACTION -->
+<section class="gallery" id="gallery">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-eyebrow">Real Events</div>
+    <h2 class="section-title">See Par-Tee <em>In Action</em></h2>
+    <p class="section-desc">Real swings, real reactions, real fun. Drop in highlight clips and event photos as your library grows.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-tile feature">
+      <video
+        src="gallery-featured.mp4"
+        poster="gallery-featured-poster.jpg"
+        autoplay muted loop playsinline preload="metadata"
+        aria-label="Par-Tee Golf simulator at sunset event"></video>
+    </div>
+    <div class="gallery-tile">
+      <img src="gallery-1-backswing.jpg" alt="Player at the top of the backswing in the Par-Tee Golf simulator" loading="lazy">
+    </div>
+    <div class="gallery-tile">
+      <div class="media-placeholder photo grad-2"><span class="media-label">Follow-Through Photo</span></div>
+    </div>
+    <div class="gallery-tile">
+      <div class="media-placeholder photo grad-3"><span class="media-label">Setup at Sunset</span></div>
+    </div>
+    <div class="gallery-tile">
+      <img src="gallery-4-tech.jpg" alt="Close-up of the simulator screen with launch monitor stat overlay" loading="lazy">
     </div>
   </div>
 </section>
@@ -160,7 +216,7 @@
         <li>Access to 100+ courses</li>
         <li>HD projection screen</li>
       </ul>
-      <button class="btn-pkg" onclick="startBooking('Birdie')">Book Birdie</button>
+      <button type="button" class="btn-pkg" data-pkg="Birdie">Book Birdie</button>
     </div>
     <div class="pkg featured">
       <div class="pkg-badge">Most Popular</div>
@@ -176,7 +232,7 @@
         <li>HD projection screen</li>
         <li>Closest to pin &amp; longest drive contests</li>
       </ul>
-      <button class="btn-pkg" onclick="startBooking('Eagle')">Book Eagle</button>
+      <button type="button" class="btn-pkg" data-pkg="Eagle">Book Eagle</button>
     </div>
     <div class="pkg">
       <div class="pkg-name">Albatross</div>
@@ -192,10 +248,10 @@
         <li>Contest modes &amp; scoring</li>
         <li>Fully customizable experience</li>
       </ul>
-      <button class="btn-pkg" onclick="startBooking('Albatross')">Book Albatross</button>
+      <button type="button" class="btn-pkg" data-pkg="Albatross">Book Albatross</button>
     </div>
   </div>
-  <p style="text-align:center;margin-top:2rem;font-size:.8rem;color:var(--gray);">All pricing is event-specific. <a href="#booking" style="color:var(--red);font-weight:600;">Get a free quote</a> for your event.</p>
+  <p style="text-align:center;margin-top:2rem;font-size:.8rem;color:var(--gray);">All pricing is event-specific and exclusive of applicable Texas state &amp; local sales tax on amusement services. Travel surcharges may apply outside the DFW metro. <a href="#booking" style="color:var(--red);font-weight:600;">Get a free quote</a> for your event.</p>
 </section>
 
 <!-- BOOKING -->
@@ -215,68 +271,81 @@
       <div class="prog-step" id="ps6"><div class="prog-dot">6</div><div class="prog-label">Confirm</div></div>
     </div>
 
-    <div class="booking-form-wrap" id="bookingFormWrap">
+    <form
+      id="bookingForm"
+      name="booking"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="booking-form-wrap" >
+      <input type="hidden" name="form-name" value="booking">
+      <p class="hp-field" aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
+
+      <input type="hidden" name="eventType" id="eventTypeHidden">
+      <input type="hidden" name="package" id="packageHidden">
+      <input type="hidden" name="addons" id="addonsHidden">
+      <input type="hidden" name="eventDate" id="eventDateHidden">
+      <input type="hidden" name="eventTime" id="eventTimeHidden">
+
+      <div id="bookingFormWrap">
 
       <!-- PANEL 1: Event Type -->
       <div class="form-panel active" id="panel1">
         <div class="panel-title">What's the occasion?</div>
         <div class="panel-sub">Select the type of event you're planning.</div>
         <div class="event-picker" id="eventPicker">
-          <div class="event-option" onclick="selectEvent(this,'Corporate Event')"><div class="ev-icon">&#128188;</div><div class="ev-label">Corporate Event</div></div>
-          <div class="event-option" onclick="selectEvent(this,'Private Party')"><div class="ev-icon">&#127881;</div><div class="ev-label">Private Party</div></div>
-          <div class="event-option" onclick="selectEvent(this,'Charity / Fundraiser')"><div class="ev-icon">&#10084;&#65039;</div><div class="ev-label">Charity / Fundraiser</div></div>
-          <div class="event-option" onclick="selectEvent(this,'Wedding / Reception')"><div class="ev-icon">&#128141;</div><div class="ev-label">Wedding / Reception</div></div>
-          <div class="event-option" onclick="selectEvent(this,'Backyard / Home')"><div class="ev-icon">&#127969;</div><div class="ev-label">Backyard / Home</div></div>
-          <div class="event-option" onclick="selectEvent(this,'Other')"><div class="ev-icon">&#11088;</div><div class="ev-label">Other</div></div>
+          <button type="button" class="event-option" data-event="Corporate Event"><span class="ev-icon" aria-hidden="true">&#128188;</span><span class="ev-label">Corporate Event</span></button>
+          <button type="button" class="event-option" data-event="Private Party"><span class="ev-icon" aria-hidden="true">&#127881;</span><span class="ev-label">Private Party</span></button>
+          <button type="button" class="event-option" data-event="Charity / Fundraiser"><span class="ev-icon" aria-hidden="true">&#10084;&#65039;</span><span class="ev-label">Charity / Fundraiser</span></button>
+          <button type="button" class="event-option" data-event="Wedding / Reception"><span class="ev-icon" aria-hidden="true">&#128141;</span><span class="ev-label">Wedding / Reception</span></button>
+          <button type="button" class="event-option" data-event="Backyard / Home"><span class="ev-icon" aria-hidden="true">&#127969;</span><span class="ev-label">Backyard / Home</span></button>
+          <button type="button" class="event-option" data-event="Other"><span class="ev-icon" aria-hidden="true">&#11088;</span><span class="ev-label">Other</span></button>
         </div>
         <div class="form-nav">
           <div></div>
-          <button class="btn-next" onclick="goToPanel(2)">Continue &#8594;</button>
+          <button type="button" class="btn-next" data-goto="2">Continue &#8594;</button>
         </div>
       </div>
 
-      <!-- PANEL 2: Date & Location (Calendar) -->
+      <!-- PANEL 2: Date & Location -->
       <div class="form-panel" id="panel2">
         <div class="panel-title">When &amp; Where?</div>
         <div class="panel-sub">Pick a date from the calendar and choose a time slot.</div>
 
-        <input type="hidden" id="eventDateHidden">
-        <input type="hidden" id="eventTimeHidden">
-
-        <!-- Calendar -->
         <div class="cal-wrap">
           <div class="cal-header">
-            <button class="cal-nav" id="calPrev" onclick="calPrev()">&#8249;</button>
+            <button type="button" class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button>
             <h4 id="calMonthLabel"></h4>
-            <button class="cal-nav" id="calNext" onclick="calNext()">&#8250;</button>
+            <button type="button" class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button>
           </div>
           <div class="cal-grid" id="calGrid"></div>
           <div class="cal-note">Dates available up to 6 months out. For bookings beyond that, please call us.</div>
         </div>
 
-        <!-- Time slots -->
         <div class="form-group" style="margin-bottom:1.5rem;">
           <label>Preferred Start Time *</label>
-          <div class="time-slots">
-            <div class="time-slot" onclick="selectTimeSlot(this,'9:00 AM')">9:00 AM</div>
-            <div class="time-slot" onclick="selectTimeSlot(this,'10:00 AM')">10:00 AM</div>
-            <div class="time-slot" onclick="selectTimeSlot(this,'11:00 AM')">11:00 AM</div>
-            <div class="time-slot" onclick="selectTimeSlot(this,'12:00 PM')">12:00 PM</div>
-            <div class="time-slot" onclick="selectTimeSlot(this,'1:00 PM')">1:00 PM</div>
-            <div class="time-slot" onclick="selectTimeSlot(this,'2:00 PM')">2:00 PM</div>
-            <div class="time-slot" onclick="selectTimeSlot(this,'3:00 PM')">3:00 PM</div>
-            <div class="time-slot" onclick="selectTimeSlot(this,'4:00 PM')">4:00 PM</div>
-            <div class="time-slot" onclick="selectTimeSlot(this,'5:00 PM')">5:00 PM</div>
-            <div class="time-slot" onclick="selectTimeSlot(this,'6:00 PM')">6:00 PM</div>
-            <div class="time-slot" onclick="selectTimeSlot(this,'7:00 PM')">7:00 PM</div>
-            <div class="time-slot" onclick="selectTimeSlot(this,'8:00 PM')">8:00 PM</div>
+          <div class="time-slots" id="timeSlots">
+            <button type="button" class="time-slot" data-time="9:00 AM">9:00 AM</button>
+            <button type="button" class="time-slot" data-time="10:00 AM">10:00 AM</button>
+            <button type="button" class="time-slot" data-time="11:00 AM">11:00 AM</button>
+            <button type="button" class="time-slot" data-time="12:00 PM">12:00 PM</button>
+            <button type="button" class="time-slot" data-time="1:00 PM">1:00 PM</button>
+            <button type="button" class="time-slot" data-time="2:00 PM">2:00 PM</button>
+            <button type="button" class="time-slot" data-time="3:00 PM">3:00 PM</button>
+            <button type="button" class="time-slot" data-time="4:00 PM">4:00 PM</button>
+            <button type="button" class="time-slot" data-time="5:00 PM">5:00 PM</button>
+            <button type="button" class="time-slot" data-time="6:00 PM">6:00 PM</button>
+            <button type="button" class="time-slot" data-time="7:00 PM">7:00 PM</button>
+            <button type="button" class="time-slot" data-time="8:00 PM">8:00 PM</button>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label>Expected Guests *</label>
-            <select id="guestCount">
+            <label for="guestCount">Expected Guests *</label>
+            <select id="guestCount" name="guestCount" autocomplete="off">
               <option value="">Select range</option>
               <option>10 – 25 guests</option>
               <option>25 – 50 guests</option>
@@ -285,8 +354,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Indoor or Outdoor?</label>
-            <select id="indoorOutdoor">
+            <label for="indoorOutdoor">Indoor or Outdoor?</label>
+            <select id="indoorOutdoor" name="indoorOutdoor" autocomplete="off">
               <option value="">Select</option>
               <option>Indoor</option>
               <option>Outdoor</option>
@@ -296,13 +365,13 @@
         </div>
         <div class="form-row full">
           <div class="form-group">
-            <label>Event Address / Venue *</label>
-            <input type="text" id="address" placeholder="123 Main St, City, TX">
+            <label for="address">Event Address / Venue *</label>
+            <input type="text" id="address" name="address" placeholder="123 Main St, City, TX" autocomplete="street-address" maxlength="200">
           </div>
         </div>
         <div class="form-nav">
-          <button class="btn-back" onclick="goToPanel(1)">&#8592; Back</button>
-          <button class="btn-next" onclick="goToPanel(3)">Continue &#8594;</button>
+          <button type="button" class="btn-back" data-goto="1">&#8592; Back</button>
+          <button type="button" class="btn-next" data-goto="3">Continue &#8594;</button>
         </div>
       </div>
 
@@ -311,14 +380,14 @@
         <div class="panel-title">Choose Your Package</div>
         <div class="panel-sub">All packages include setup, staffing, and full equipment. Pricing quoted after submission.</div>
         <div class="pkg-picker" id="pkgPicker">
-          <div class="pkg-option" onclick="selectPkg(this,'Birdie')"><div class="po-name">&#128038; Birdie</div><div class="po-duration">2 Hours</div>$<div class="po-price">549</div></div>
-          <div class="pkg-option" onclick="selectPkg(this,'Eagle')"><div class="po-name">&#129413; Eagle — Most Popular</div><div class="po-duration">4 Hours</div>$<div class="po-price">999</div></div>
-          <div class="pkg-option" onclick="selectPkg(this,'Albatross')"><div class="po-name">&#127775; Albatross</div><div class="po-duration">6+ Hours</div>$<div class="po-price">1399</div></div>
-          <div class="pkg-option" onclick="selectPkg(this,'Custom')"><div class="po-name">&#9999;&#65039; Custom Package</div><div class="po-duration">Your choice</div><div class="po-price">Let's talk</div></div>
+          <button type="button" class="pkg-option" data-pkg="Birdie"><span class="po-name">&#128038; Birdie</span><span class="po-duration">2 Hours</span><span class="po-price">$549</span></button>
+          <button type="button" class="pkg-option" data-pkg="Eagle"><span class="po-name">&#129413; Eagle — Most Popular</span><span class="po-duration">4 Hours</span><span class="po-price">$999</span></button>
+          <button type="button" class="pkg-option" data-pkg="Albatross"><span class="po-name">&#127775; Albatross</span><span class="po-duration">6+ Hours</span><span class="po-price">$1399</span></button>
+          <button type="button" class="pkg-option" data-pkg="Custom"><span class="po-name">&#9999;&#65039; Custom Package</span><span class="po-duration">Your choice</span><span class="po-price">Let's talk</span></button>
         </div>
         <div class="form-nav">
-          <button class="btn-back" onclick="goToPanel(2)">&#8592; Back</button>
-          <button class="btn-next" onclick="goToPanel(4)">Continue &#8594;</button>
+          <button type="button" class="btn-back" data-goto="2">&#8592; Back</button>
+          <button type="button" class="btn-next" data-goto="4">Continue &#8594;</button>
         </div>
       </div>
 
@@ -328,56 +397,57 @@
         <div class="panel-sub">Select any add-ons to enhance your event. All are optional.</div>
         <div class="addon-picker" id="addonPicker">
           <label class="addon-check">
-            <input type="checkbox" name="addon" value="Extra Hour ($200)">
-            <div class="addon-check-box">
-              <span class="addon-check-icon">&#9201;</span>
-              <div class="addon-check-info">
+            <input type="checkbox" name="addon" value="Extra Hour ($249)">
+            <span class="addon-check-box">
+              <span class="addon-check-icon" aria-hidden="true">&#9201;</span>
+              <span class="addon-check-info">
                 <strong>Extra Hour</strong>
                 <span>Extend the fun with an additional hour of simulator time.</span>
-              </div>              <span class="addon-check-price">$249</span>
-            </div>
+              </span>
+              <span class="addon-check-price">$249</span>
+            </span>
           </label>
           <label class="addon-check">
             <input type="checkbox" name="addon" value="Dual Simulators (+60%)">
-            <div class="addon-check-box">
-              <span class="addon-check-icon">&#127918;</span>
-              <div class="addon-check-info">
+            <span class="addon-check-box">
+              <span class="addon-check-icon" aria-hidden="true">&#127918;</span>
+              <span class="addon-check-info">
                 <strong>Dual Simulators</strong>
                 <span>Double the action with a second simulator setup.</span>
-              </div>
+              </span>
               <span class="addon-check-price">+60%</span>
-            </div>
+            </span>
           </label>
           <label class="addon-check">
             <input type="checkbox" name="addon" value="Contest Package (+$150)">
-            <div class="addon-check-box">
-              <span class="addon-check-icon">&#127942;</span>
-              <div class="addon-check-info">
+            <span class="addon-check-box">
+              <span class="addon-check-icon" aria-hidden="true">&#127942;</span>
+              <span class="addon-check-info">
                 <strong>Contest Package</strong>
                 <span>Closest-to-pin, longest-drive, and scoring leaderboards.</span>
-              </div>
+              </span>
               <span class="addon-check-price">+$150</span>
-            </div>
+            </span>
           </label>
           <label class="addon-check">
-            <input type="checkbox" name="addon" value="HD Upgrade (+$100)">
-            <div class="addon-check-box">
-              <span class="addon-check-icon">&#128250;</span>
-              <div class="addon-check-info">
-                <strong>Video Recording and Highlight reel</strong>
-                <span>Shareable content emailed within 24 hours. Great for Memories!</span>
-              </div>
+            <input type="checkbox" name="addon" value="Highlight Reel (+$100)">
+            <span class="addon-check-box">
+              <span class="addon-check-icon" aria-hidden="true">&#128250;</span>
+              <span class="addon-check-info">
+                <strong>Video Recording &amp; Highlight Reel</strong>
+                <span>Shareable content emailed within 24 hours. Great for memories!</span>
+              </span>
               <span class="addon-check-price">+$100</span>
-            </div>
+            </span>
           </label>
         </div>
         <div class="form-group" style="margin-top:1rem;">
-          <label>Special requests or notes</label>
-          <textarea id="addonNotes" placeholder="e.g. Left-handed clubs needed, specific courses..."></textarea>
+          <label for="addonNotes">Special requests or notes</label>
+          <textarea id="addonNotes" name="addonNotes" maxlength="1000" placeholder="e.g. Left-handed clubs needed, specific courses..."></textarea>
         </div>
         <div class="form-nav">
-          <button class="btn-back" onclick="goToPanel(3)">&#8592; Back</button>
-          <button class="btn-next" onclick="goToPanel(5)">Continue &#8594;</button>
+          <button type="button" class="btn-back" data-goto="3">&#8592; Back</button>
+          <button type="button" class="btn-next" data-goto="5">Continue &#8594;</button>
         </div>
       </div>
 
@@ -386,17 +456,17 @@
         <div class="panel-title">Your Contact Info</div>
         <div class="panel-sub">So we can confirm your booking and send details.</div>
         <div class="form-row">
-          <div class="form-group"><label>First Name *</label><input type="text" id="firstName" placeholder="Jane"></div>
-          <div class="form-group"><label>Last Name *</label><input type="text" id="lastName" placeholder="Smith"></div>
+          <div class="form-group"><label for="firstName">First Name *</label><input type="text" id="firstName" name="firstName" placeholder="Jane" autocomplete="given-name" maxlength="60"></div>
+          <div class="form-group"><label for="lastName">Last Name *</label><input type="text" id="lastName" name="lastName" placeholder="Smith" autocomplete="family-name" maxlength="60"></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Email Address *</label><input type="email" id="email" placeholder="jane@example.com"></div>
-          <div class="form-group"><label>Phone Number *</label><input type="tel" id="phone" placeholder="(555) 000-0000"></div>
+          <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" maxlength="120"></div>
+          <div class="form-group"><label for="phone">Phone Number *</label><input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" maxlength="25"></div>
         </div>
         <div class="form-row full">
           <div class="form-group">
-            <label>How did you hear about us?</label>
-            <select id="referral">
+            <label for="referral">How did you hear about us?</label>
+            <select id="referral" name="referral" autocomplete="off">
               <option value="">Select...</option>
               <option>Google Search</option>
               <option>Instagram</option>
@@ -407,9 +477,25 @@
             </select>
           </div>
         </div>
+
+        <div class="consent-block">
+          <label class="consent-check">
+            <input type="checkbox" id="consentContact" name="consentContact" value="yes" required>
+            <span><strong>Contact consent (TCPA / CAN-SPAM):</strong> I agree to receive booking-related calls, texts, and emails from Par-Tee Golf LLC at the number and address provided. Message &amp; data rates may apply. I can opt out at any time by replying STOP or contacting <a href="mailto:info@parteegolf.com">info@parteegolf.com</a>.</span>
+          </label>
+          <label class="consent-check">
+            <input type="checkbox" id="consentWaiver" name="consentWaiver" value="yes" required>
+            <span><strong>Liability acknowledgement:</strong> I have read the <a href="#waiver">Liability Waiver &amp; Assumption of Risk</a>, <a href="#terms">Terms of Service</a>, and <a href="#privacy">Privacy Policy</a>, and I understand that golf-swing activities carry inherent risks of injury or property damage. I agree to ensure all event participants are advised of these terms.</span>
+          </label>
+          <label class="consent-check">
+            <input type="checkbox" id="consentAge" name="consentAge" value="yes" required>
+            <span>I confirm I am at least 18 years of age and authorized to make this booking on behalf of the venue / hosting party.</span>
+          </label>
+        </div>
+
         <div class="form-nav">
-          <button class="btn-back" onclick="goToPanel(4)">&#8592; Back</button>
-          <button class="btn-next" onclick="goToPanel(6)">Review Booking &#8594;</button>
+          <button type="button" class="btn-back" data-goto="4">&#8592; Back</button>
+          <button type="button" class="btn-next" data-goto="6">Review Booking &#8594;</button>
         </div>
       </div>
 
@@ -418,21 +504,29 @@
         <div class="panel-title">Review &amp; Confirm</div>
         <div class="panel-sub">Everything look good? Submit your request and we'll reach out within 24 hours to confirm.</div>
         <div class="confirm-box" id="confirmBox"></div>
-        <p style="font-size:.75rem;color:rgba(255,255,255,.35);margin-bottom:1.5rem;">By submitting you agree to be contacted by Par-Tee Golf LLC regarding your event booking. No charges are made at this step.</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.5);margin-bottom:1.5rem;">By submitting you agree to be contacted by Par-Tee Golf LLC regarding your event booking. No charges are made at this step. Final pricing will be confirmed in writing before any payment is collected. Submissions are protected by anti-spam screening and transmitted over an encrypted (HTTPS) connection.</p>
         <div class="form-nav">
-          <button class="btn-back" onclick="goToPanel(5)">&#8592; Back</button>
-          <button class="btn-submit" onclick="submitBooking()">&#127948;&#65039; Confirm Request</button>
+          <button type="button" class="btn-back" data-goto="5">&#8592; Back</button>
+          <button type="submit" class="btn-submit" id="bookingSubmitBtn">&#127948;&#65039; Confirm Request</button>
         </div>
       </div>
 
-    </div>
+      </div>
+    </form>
 
     <!-- SUCCESS -->
-    <div class="booking-success" id="bookingSuccess">
+    <div class="booking-success" id="bookingSuccess" role="status" aria-live="polite">
       <div class="success-icon">&#9971;</div>
       <h3>You're on the Tee!</h3>
       <p>Thanks for booking with Par-Tee Golf! We've received your request and will be in touch within 24 hours to confirm all the details.</p>
       <a href="#home" class="btn-primary" style="display:inline-block;">Back to Home</a>
+    </div>
+
+    <!-- ERROR -->
+    <div class="booking-error" id="bookingError" role="alert" aria-live="assertive" hidden>
+      <h3>We couldn't submit your booking</h3>
+      <p id="bookingErrorMsg">Please check your internet connection and try again, or email us at <a href="mailto:info@parteegolf.com">info@parteegolf.com</a>.</p>
+      <button type="button" class="btn-outline" id="bookingRetry">Try Again</button>
     </div>
 
   </div>
@@ -449,7 +543,7 @@
       <div class="earlybird-stat"><span class="earlybird-num">20</span><span class="earlybird-label">Spots Available</span></div>
     </div>
     <a href="#booking" class="btn-primary">Claim Your Spot</a>
-    <p class="earlybird-fine">Discount applied automatically at confirmation. Limited to the first 20 confirmed bookings.</p>
+    <p class="earlybird-fine">Discount applied automatically at confirmation. Limited to the first 20 confirmed bookings. Subject to applicable Texas state &amp; local sales tax.</p>
   </div>
 </section>
 
@@ -462,42 +556,42 @@
   </div>
   <div class="why-grid">
     <div class="why-item">
-      <span class="why-check">&#10003;</span>
+      <span class="why-check" aria-hidden="true">&#10003;</span>
       <div class="why-text">
-        <strong>Fully Insured &amp; Licensed Mobile Operator</strong>
-        <p>Par-Tee Golf LLC carries full commercial liability insurance and operates as a licensed mobile entertainment provider in the state of Texas.</p>
+        <strong>Fully Insured Texas Mobile Operator</strong>
+        <p>Par-Tee Golf LLC is a Texas-registered limited liability company carrying commercial general liability insurance. Certificates of Insurance are available to venues on request.</p>
       </div>
     </div>
     <div class="why-item">
-      <span class="why-check">&#10003;</span>
+      <span class="why-check" aria-hidden="true">&#10003;</span>
       <div class="why-text">
         <strong>Professional Launch Monitor Technology</strong>
         <p>Our simulator uses professional-grade launch monitor technology for accurate ball tracking, swing data, and a realistic on-course experience.</p>
       </div>
     </div>
     <div class="why-item">
-      <span class="why-check">&#10003;</span>
+      <span class="why-check" aria-hidden="true">&#10003;</span>
       <div class="why-text">
         <strong>Setup in 45 Minutes or Less</strong>
         <p>Our trained crew arrives early and has the full simulator experience ready to go in 45 minutes or less — no disruption to your event timeline.</p>
       </div>
     </div>
     <div class="why-item">
-      <span class="why-check">&#10003;</span>
+      <span class="why-check" aria-hidden="true">&#10003;</span>
       <div class="why-text">
         <strong>On-Site Staff Handles Everything</strong>
-        <p>A dedicated Par-Tee Golf attendant stays on-site for the entire event to run the simulator, assist guests, and manage all equipment.</p>
+        <p>A dedicated Par-Tee Golf attendant stays on-site for the entire event to run the simulator, brief participants on safe-swing zones, and manage all equipment.</p>
       </div>
     </div>
     <div class="why-item">
-      <span class="why-check">&#10003;</span>
+      <span class="why-check" aria-hidden="true">&#10003;</span>
       <div class="why-text">
         <strong>Works Indoors &amp; Outdoors</strong>
         <p>Our portable setup is designed for any venue — garages, event halls, backyards, patios, warehouses, or tented spaces. We bring the course to you.</p>
       </div>
     </div>
     <div class="why-item">
-      <span class="why-check">&#10003;</span>
+      <span class="why-check" aria-hidden="true">&#10003;</span>
       <div class="why-text">
         <strong>Available 7 Days a Week</strong>
         <p>Whether it's a weekday corporate lunch or a Saturday evening wedding reception, Par-Tee Golf is available every day of the week.</p>
@@ -516,14 +610,71 @@
     <h2 class="section-title">Common <em>Questions</em></h2>
   </div>
   <div class="faq-grid">
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How much space do I need? <span class="arrow">+</span></div><div class="faq-a">We need approximately 15ft × 18ft of clear space to set up the simulator, giving players room to swing freely and spectators room to watch. We also need access to a standard 120V power outlet.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can guests bring their own clubs? <span class="arrow">+</span></div><div class="faq-a">Absolutely! Par-Tee Golf is compatible with all standard golf clubs. We also provide a right-handed set with every rental, plus optional left-handed, ladies', and kids' sets available upon request.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do guests need golf experience? <span class="arrow">+</span></div><div class="faq-a">Not at all! Our on-site attendant is there to help guests of all skill levels get set up and enjoy themselves. Beginners love it just as much as avid golfers.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How far in advance should I book? <span class="arrow">+</span></div><div class="faq-a">We recommend booking at least 2–3 weeks in advance to secure your preferred date. For peak seasons (spring and fall) or large events, 4–6 weeks is ideal. We do accommodate last-minute requests when possible.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can you set up outdoors? <span class="arrow">+</span></div><div class="faq-a">Yes! Our simulator works great outdoors. We do recommend a shaded or tented area for the best screen visibility. We'll work with you to find the ideal setup location at your venue.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What's included in every package? <span class="arrow">+</span></div><div class="faq-a">Every package includes delivery, full setup and takedown, a professional on-site attendant, a right-handed club set, HD projection, and access to 100+ courses via GSPro software.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you serve the entire Dallas-Fort Worth area? <span class="arrow">+</span></div><div class="faq-a">We serve the greater DFW metroplex and surrounding areas. Travel fees may apply for locations beyond a 50-mile radius. Contact us for availability in your area.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What happens if it rains? <span class="arrow">+</span></div><div class="faq-a">For outdoor events, we monitor weather closely and will work with you on contingency plans. If the event needs to be rescheduled due to severe weather, we'll accommodate at no extra charge.</div></div>
+    <div class="faq-item"><button type="button" class="faq-q">How much space do I need? <span class="arrow" aria-hidden="true">+</span></button><div class="faq-a">We need approximately 15ft × 18ft of clear space with a minimum 10ft ceiling to set up the simulator, giving players room to swing freely and spectators room to watch from a marked safe zone. We also need access to a standard 120V power outlet.</div></div>
+    <div class="faq-item"><button type="button" class="faq-q">Can guests bring their own clubs? <span class="arrow" aria-hidden="true">+</span></button><div class="faq-a">Absolutely! Par-Tee Golf is compatible with all standard golf clubs. We also provide a right-handed set with every rental, plus optional left-handed, ladies', and kids' sets available upon request.</div></div>
+    <div class="faq-item"><button type="button" class="faq-q">Do guests need golf experience? <span class="arrow" aria-hidden="true">+</span></button><div class="faq-a">Not at all! Our on-site attendant is there to help guests of all skill levels get set up and enjoy themselves. Beginners love it just as much as avid golfers.</div></div>
+    <div class="faq-item"><button type="button" class="faq-q">How far in advance should I book? <span class="arrow" aria-hidden="true">+</span></button><div class="faq-a">We recommend booking at least 2–3 weeks in advance to secure your preferred date. For peak seasons (spring and fall) or large events, 4–6 weeks is ideal. We do accommodate last-minute requests when possible.</div></div>
+    <div class="faq-item"><button type="button" class="faq-q">Can you set up outdoors? <span class="arrow" aria-hidden="true">+</span></button><div class="faq-a">Yes! Our simulator works great outdoors. We do recommend a shaded or tented area for the best screen visibility. We'll work with you to find the ideal setup location at your venue.</div></div>
+    <div class="faq-item"><button type="button" class="faq-q">What's included in every package? <span class="arrow" aria-hidden="true">+</span></button><div class="faq-a">Every package includes delivery, full setup and takedown, a professional on-site attendant, a right-handed club set, HD projection, and access to 100+ courses via GSPro software.</div></div>
+    <div class="faq-item"><button type="button" class="faq-q">Do you serve the entire Dallas-Fort Worth area? <span class="arrow" aria-hidden="true">+</span></button><div class="faq-a">We serve the greater DFW metroplex and surrounding areas. Travel fees may apply for locations beyond a 50-mile radius. Contact us for availability in your area.</div></div>
+    <div class="faq-item"><button type="button" class="faq-q">What happens if it rains? <span class="arrow" aria-hidden="true">+</span></button><div class="faq-a">For outdoor events, we monitor weather closely and will work with you on contingency plans. If the event needs to be rescheduled due to severe weather, we'll accommodate at no extra charge per our cancellation policy.</div></div>
+    <div class="faq-item"><button type="button" class="faq-q">Is sales tax included in the price? <span class="arrow" aria-hidden="true">+</span></button><div class="faq-a">No. Texas treats simulator amusement services as taxable. Applicable Texas state and local sales tax is added to the final invoice unless your organization provides a valid Texas Sales Tax Exemption Certificate (Form 01-339).</div></div>
+    <div class="faq-item"><button type="button" class="faq-q">Is the simulator accessible to guests with mobility needs? <span class="arrow" aria-hidden="true">+</span></button><div class="faq-a">Yes — the playing area is at floor level and seated play is fully supported. Let us know in advance and we'll position the setup to accommodate wheelchairs, walkers, or assistive devices.</div></div>
+  </div>
+</section>
+
+<!-- LEGAL: Privacy / Terms / Waiver -->
+<section class="legal" id="legal">
+  <div class="legal-wrap">
+    <div class="section-eyebrow">Legal &amp; Compliance</div>
+    <h2 class="section-title" style="text-align:center;">Policies &amp; <em>Disclosures</em></h2>
+    <p class="legal-intro">Par-Tee Golf LLC is a Texas-registered limited liability company. The following disclosures are provided in compliance with applicable Texas and federal consumer-protection, privacy, and electronic-communications laws. Please review them before submitting a booking.</p>
+
+    <details class="legal-block" id="privacy">
+      <summary><strong>Privacy Policy</strong></summary>
+      <div class="legal-body">
+        <p><em>Last updated: 2026.</em></p>
+        <p><strong>Information we collect.</strong> When you submit the booking form we collect your name, email address, phone number, event date and address, package selection, add-on preferences, and any notes you choose to provide. We also receive standard server log data (IP address, user-agent, timestamps) from our hosting provider, Netlify, for security and abuse prevention.</p>
+        <p><strong>How we use it.</strong> Solely to (i) respond to your booking request, (ii) confirm and service your event, (iii) send transactional and event-related communications, and (iv) comply with our legal obligations. We do not sell or rent personal information.</p>
+        <p><strong>Texas resident rights.</strong> Under the Texas Data Privacy and Security Act and the Texas Identity Theft Enforcement and Protection Act, you may request access to, correction of, or deletion of personal information we hold about you, and you may opt out of targeted advertising or sale of personal data (we do not engage in either). Submit requests to <a href="mailto:privacy@parteegolf.com">privacy@parteegolf.com</a>.</p>
+        <p><strong>Children.</strong> Our website and booking form are not directed to children under 13, and we do not knowingly collect their personal information (COPPA).</p>
+        <p><strong>Security.</strong> All form submissions are transmitted over TLS / HTTPS. We retain inquiry data for no longer than reasonably necessary to service your event and meet recordkeeping obligations.</p>
+        <p><strong>Cookies.</strong> This site uses only essential, first-party cookies required to operate the site. No advertising or third-party tracking cookies are set.</p>
+      </div>
+    </details>
+
+    <details class="legal-block" id="terms">
+      <summary><strong>Terms of Service</strong></summary>
+      <div class="legal-body">
+        <p><em>Last updated: 2026.</em></p>
+        <p><strong>1. Booking &amp; quotes.</strong> Submitting the online form is a request, not a confirmed reservation. A booking is confirmed only when Par-Tee Golf LLC issues a written confirmation and any required deposit has been paid.</p>
+        <p><strong>2. Pricing &amp; sales tax.</strong> Listed package prices are exclusive of applicable Texas state and local sales tax on amusement services. Travel surcharges apply outside the DFW metro at the rates disclosed in your quote.</p>
+        <p><strong>3. Cancellation &amp; refunds.</strong> Cancellations made 14+ days before the event date receive a full deposit refund. Cancellations 7–13 days prior receive a 50% refund. Cancellations within 7 days are non-refundable, but we will work in good faith to reschedule. Severe-weather rescheduling for outdoor events is provided at no charge.</p>
+        <p><strong>4. Site requirements.</strong> The customer is responsible for ensuring the venue has the required space (15ft × 18ft, 10ft ceiling), level surface, weather protection if outdoors, and a working 120V outlet within 25 feet of the setup area.</p>
+        <p><strong>5. Age &amp; supervision.</strong> Players under 18 must be supervised by a responsible adult. Par-Tee Golf does not serve alcohol; alcohol service at the venue is the host's responsibility under Texas Alcoholic Beverage Code.</p>
+        <p><strong>6. Equipment care.</strong> The customer is responsible for any damage to simulator equipment caused by guest negligence, intentional misconduct, or pets. Normal wear is included.</p>
+        <p><strong>7. Force majeure.</strong> Neither party is liable for failure to perform due to events beyond reasonable control (severe weather, government order, utility failure, public-health emergencies).</p>
+        <p><strong>8. Governing law &amp; venue.</strong> These terms are governed by the laws of the State of Texas. Exclusive venue for any dispute is the state or federal courts located in Dallas County, Texas.</p>
+      </div>
+    </details>
+
+    <details class="legal-block" id="waiver">
+      <summary><strong>Liability Waiver &amp; Assumption of Risk</strong></summary>
+      <div class="legal-body">
+        <p><strong>Inherent risk.</strong> Swinging a golf club inside a simulator enclosure carries inherent risks, including but not limited to bodily injury from clubs, balls, screens, or other participants; trip-and-fall hazards; eye, hand, or back strain; and property damage. By participating, each player acknowledges and assumes these risks.</p>
+        <p><strong>Safety rules.</strong> Only one player may occupy the swing zone at a time. Spectators must remain behind the marked safe-zone line. No alcohol consumption is permitted while swinging. Closed-toe shoes are recommended. The on-site attendant has final authority to pause play for safety.</p>
+        <p><strong>Release.</strong> To the fullest extent permitted by Texas law, the customer and each participant releases Par-Tee Golf LLC, its owners, employees, and agents from claims arising out of ordinary negligence in connection with the use of the simulator, except for claims involving gross negligence or willful misconduct. This waiver does not limit any rights that cannot be waived under Texas law.</p>
+        <p><strong>Minors.</strong> A parent or legal guardian must accept this waiver on behalf of any participant under 18.</p>
+        <p><strong>Insurance.</strong> Par-Tee Golf LLC carries commercial general liability insurance. A Certificate of Insurance is available on request for venue compliance.</p>
+      </div>
+    </details>
+
+    <details class="legal-block" id="accessibility">
+      <summary><strong>Accessibility Statement</strong></summary>
+      <div class="legal-body">
+        <p>Par-Tee Golf LLC strives to provide a website and event experience accessible to people with disabilities, consistent with the spirit of the Americans with Disabilities Act (ADA) and WCAG 2.1 AA. The site supports keyboard navigation, descriptive alt text, semantic landmarks, and a high-contrast color palette. If you encounter an accessibility barrier or need an accommodation for an event, please contact <a href="mailto:info@parteegolf.com">info@parteegolf.com</a>.</p>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -534,23 +685,23 @@
       <img src="logo.png" alt="Par-Tee Golf">
       <p>Par-Tee Golf LLC brings a premium mobile golf simulator experience directly to your event. No course required — just show up and swing.</p>
       <div class="footer-social">
-        <a href="#" class="social-btn" title="Instagram">IG</a>
-        <a href="#" class="social-btn" title="Facebook">FB</a>
-        <a href="#" class="social-btn" title="TikTok">TK</a>
+        <a href="#" class="social-btn" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">IG</a>
+        <a href="#" class="social-btn" rel="noopener noreferrer" title="Facebook" aria-label="Facebook">FB</a>
+        <a href="#" class="social-btn" rel="noopener noreferrer" title="TikTok" aria-label="TikTok">TK</a>
       </div>
     </div>
     <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#about">About Us</a></li><li><a href="#services">Event Types</a></li><li><a href="#packages">Packages</a></li><li><a href="#whychoose">Why Us</a></li><li><a href="#faq">FAQ</a></li></ul></div>
     <div class="footer-col"><h4>Events</h4><ul><li><a href="#booking">Corporate Events</a></li><li><a href="#booking">Private Parties</a></li><li><a href="#booking">Charity Events</a></li><li><a href="#booking">Weddings</a></li><li><a href="#booking">Backyard Events</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul><li><a href="#booking">Book an Event</a></li><li><a href="mailto:info@parteegolf.com">info@parteegolf.com</a></li><li><a href="tel:+1">Call Us</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul><li><a href="#privacy">Privacy Policy</a></li><li><a href="#terms">Terms of Service</a></li><li><a href="#waiver">Liability Waiver</a></li><li><a href="#accessibility">Accessibility</a></li><li><a href="mailto:info@parteegolf.com">info@parteegolf.com</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2025 Par-Tee Golf LLC. All rights reserved.</span>
-    <span>Mobile Golf Simulator Rental</span>
+    <span>&copy; 2026 Par-Tee Golf LLC. All rights reserved. &middot; Texas-registered LLC &middot; Mobile Golf Simulator Rental</span>
+    <span>Serving the Dallas–Fort Worth metroplex and surrounding Texas communities.</span>
   </div>
 </footer>
 
-<a href="#booking" class="float-book">&#9971; Book Now</a>
+<a href="#booking" class="float-book" aria-label="Book Now">&#9971; Book Now</a>
 
-<script src="app.js"></script>
+<script src="app.js" defer></script>
 </body>
 </html>
