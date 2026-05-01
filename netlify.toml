@@ -1,3 +1,55 @@
 [build]
-  command = "mkdir -p public && cp Index.html public/index.html && cp styles.css public/styles.css && cp app.js public/app.js && cp logo.png public/logo.png"
+  command = "mkdir -p public && cp Index.html public/index.html && cp styles.css public/styles.css && cp app.js public/app.js && cp logo.png public/logo.png && cp hero.mp4 public/hero.mp4 && cp hero-poster.jpg public/hero-poster.jpg && cp gallery-featured.mp4 public/gallery-featured.mp4 && cp gallery-featured-poster.jpg public/gallery-featured-poster.jpg && cp gallery-1-backswing.jpg public/gallery-1-backswing.jpg && cp gallery-4-tech.jpg public/gallery-4-tech.jpg"
   publish = "public"
+
+# Force HTTPS for every request
+[[redirects]]
+  from = "http://parteegolf.com/*"
+  to = "https://parteegolf.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.parteegolf.com/*"
+  to = "https://parteegolf.com/:splat"
+  status = 301
+  force = true
+
+# Security headers — applied to every path
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+
+# Long-cache static media
+[[headers]]
+  for = "*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/styles.css"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/app.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
