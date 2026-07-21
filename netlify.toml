@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf public && mkdir -p public && cp index.html styles.css app.js boot.js logo.png favicon.ico favicon-16x16.png favicon-32x32.png apple-touch-icon.png hero.mp4 hero-poster.jpg setup-walkthrough-clean.mp4 setup-walkthrough-clean-poster.jpg gallery-featured.mp4 gallery-featured-poster.jpg gallery-1-backswing.jpg gallery-4-tech.jpg public/ && test -s public/index.html"
+  command = "rm -rf public && mkdir -p public && cp index.html styles.css app.js boot.js logo.png favicon.ico favicon-16x16.png favicon-32x32.png apple-touch-icon.png hero.mp4 hero-poster.jpg setup-walkthrough-clean.mp4 setup-walkthrough-clean-poster.jpg gallery-featured.mp4 gallery-featured-poster.jpg gallery-1-backswing.jpg gallery-2-follow-through-v2.jpg gallery-3-sunset-setup-v2.jpg gallery-4-tech.jpg about-setup-v1.jpg public/ && test -s public/index.html"
   publish = "public"
 
 # Canonical domain handling for the public production URL.
@@ -77,7 +77,7 @@
 [[headers]]
   for = "*.jpg"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=86400, must-revalidate"
 
 [[headers]]
   for = "*.png"
