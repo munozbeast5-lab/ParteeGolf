@@ -20,6 +20,42 @@
     bindBooking();
     bindFaq();
     bindPackageButtons();
+    bindWalkthroughVideo();
+  }
+
+  function bindWalkthroughVideo() {
+    const video = document.querySelector('.how-video-media');
+    const playButton = document.querySelector('.how-video-play');
+    if (!video) return;
+
+    function showPlayButton() {
+      if (playButton) playButton.hidden = false;
+    }
+
+    function hidePlayButton() {
+      if (playButton) playButton.hidden = true;
+    }
+
+    function playVideo() {
+      video.defaultMuted = true;
+      video.muted = true;
+      video.setAttribute('muted', '');
+      const playAttempt = video.play();
+      if (playAttempt && typeof playAttempt.then === 'function') {
+        playAttempt.then(hidePlayButton).catch(showPlayButton);
+      }
+    }
+
+    if (playButton) playButton.addEventListener('click', playVideo);
+    video.addEventListener('playing', hidePlayButton);
+    video.addEventListener('error', showPlayButton);
+
+    if (video.readyState >= 2) playVideo();
+    else video.addEventListener('canplay', playVideo, { once: true });
+
+    window.addEventListener('pageshow', function () {
+      if (video.paused) playVideo();
+    });
   }
 
   // -- Nav (mobile hamburger) --

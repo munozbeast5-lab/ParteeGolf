@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260501">
+<link rel="stylesheet" href="styles.css?v=20260721">
 <script src="boot.js?v=20260501"></script>
 </head>
 <body>
@@ -137,10 +137,26 @@
     </div>
   </div>
   <div class="how-video-wrap">
-    <div class="how-video-placeholder" role="img" aria-label="Walkthrough video coming soon">
-      <div class="play-button big" aria-hidden="true">&#9654;</div>
-      <div class="how-video-label">60-Second Walkthrough Video</div>
-      <small>Show setup, gameplay, and a happy crowd</small>
+    <div class="how-video-copy">
+      <span class="how-video-kicker">Setup Walkthrough</span>
+      <h3>From arrival to ready-to-play.</h3>
+      <p>See how the Par-Tee Golf simulator comes together at your venue while our team handles every detail.</p>
+      <div class="how-video-tags" aria-label="Walkthrough highlights">
+        <span>Delivery</span><span>Setup</span><span>Tee Time</span>
+      </div>
+    </div>
+    <div class="how-video-frame">
+      <video
+        class="how-video-media"
+        src="setup-walkthrough-clean.mp4"
+        poster="setup-walkthrough-clean-poster.jpg"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-label="Par-Tee Golf setup walkthrough playing on a loop"></video>
+      <button class="how-video-play" type="button" hidden>Play walkthrough</button>
     </div>
   </div>
   <div style="text-align:center;margin-top:3rem;">
@@ -744,6 +760,6 @@
 
 <a href="#booking" class="float-book" aria-label="Book Now">&#9971; Book Now</a>
 
-<script src="app.js?v=20260501" defer></script>
+<script src="app.js?v=20260721" defer></script>
 </body>
 </html>
