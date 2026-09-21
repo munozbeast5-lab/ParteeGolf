@@ -21,6 +21,7 @@
     bindFaq();
     bindPackageButtons();
     bindWalkthroughVideo();
+    captureCampaignContext();
   }
 
   function bindWalkthroughVideo() {
@@ -78,8 +79,36 @@
   // -- FAQ accordion --
   function bindFaq() {
     document.querySelectorAll('.faq-q').forEach(function (btn) {
+      btn.setAttribute('aria-expanded', 'false');
       btn.addEventListener('click', function () {
-        btn.parentElement.classList.toggle('open');
+        const open = btn.parentElement.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+  }
+
+  // Preserve campaign attribution without third-party tracking or cookies.
+  function captureCampaignContext() {
+    const query = new URLSearchParams(window.location.search);
+    const fields = {
+      utmSource: query.get('utm_source'),
+      utmMedium: query.get('utm_medium'),
+      utmCampaign: query.get('utm_campaign'),
+      utmTerm: query.get('utm_term'),
+      utmContent: query.get('utm_content'),
+      landingPage: window.location.pathname
+    };
+    Object.keys(fields).forEach(function (id) {
+      const input = document.getElementById(id);
+      if (input && fields[id]) input.value = String(fields[id]).slice(0, 160);
+    });
+    const referrer = document.getElementById('referrer');
+    if (referrer) referrer.value = document.referrer ? document.referrer.slice(0, 500) : 'Direct';
+
+    document.querySelectorAll('[data-conversion]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'conversion_click', conversion_type: link.dataset.conversion, page_location: window.location.pathname });
       });
     });
   }
@@ -357,11 +386,13 @@
       showSuccess();
     }).catch(function () {
       showError();
-      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = '🏌️ Confirm Request'; }
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Confirm Request'; }
     });
   }
 
   function showSuccess() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'generate_lead', form_name: 'booking', package_name: state.pkg || 'Not selected', event_type: state.eventType || 'Not selected' });
     document.getElementById('bookingForm').style.display = 'none';
     document.getElementById('progressTrack').style.display = 'none';
     document.getElementById('bookingSuccess').style.display = 'block';
